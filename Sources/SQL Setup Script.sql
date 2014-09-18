@@ -1,25 +1,18 @@
-﻿-- Enable CLR integration
+-- Enable CLR integration
 EXEC sp_configure 'clr enabled', 1
 RECONFIGURE
 GO
 
 -- Set proper permissions on the database
-ALTER DATABASE [Database Name Goes Here] 
+ALTER DATABASE [Database Name] 
 SET TRUSTWORTHY ON
 GO
 
 -- Create assemply from the DLL
 -- Replace the path as appropriate
 CREATE ASSEMBLY YAddressSqlFunction
-FROM 'c:\temp\YAddressSqlFunction.dll' 
-WITH PERMISSION_SET = UNSAFE;
-GO
-
--- Create serialization assembly.
--- Replace the path as appropriate
-CREATE ASSEMBLY [YAddressSqlFunction.XmlSerializers]
-FROM 'c:\temp\YAddressSqlFunction.XmlSerializers.dll' 
-WITH PERMISSION_SET = SAFE
+FROM 'C:\temp\YAddressSqlFunction.dll' 
+WITH PERMISSION_SET = EXTERNAL_ACCESS;
 GO
 
 -- Create a User Defined Function
@@ -48,7 +41,7 @@ RETURNS TABLE
         CensusBlock nvarchar(255),
         Latitude float,
         Longitude float,
-        GeocodePrecision nvarchar(255)
+        GeocodePrecision int
 )
 AS 
 EXTERNAL NAME YAddressSqlFunction.YAddressSqlFunction.InitMethod
