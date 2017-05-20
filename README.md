@@ -1,6 +1,7 @@
 ## MS SQL Server User-Defined Function (UDF) for Address Correction and Geocoding
 
-This SQL Server User Defind Function (UDF) will correct, validate, standardize and geocode postal addresses in Microsoft SQL Server. 
+This SQL Server User Defind Function (UDF) will correct, validate, standardize and geocode postal addresses in Microsoft SQL Server.
+
 The UDF can be called directly from SQL queries, included in stored procedures, or incorporated in ETL packages built with SSIS. 
 
 # Setup
@@ -27,28 +28,28 @@ ProcessAddress is a table-valued UDF. Executing the following T-SQL illustrates 
 ```sql
 SELECT * FROM ProcessAddress('506 Fourth Avenue Unit 1', 'Asbury Prk, NJ', NULL) 
 ```
-ErrorCode: 0
-ErrorMessage:
-AddressLine1: 506 4TH AVE APT 1
-AddressLine2: ASBURY PARK, NJ 07712-6086
-Number: 506
-PreDir:
-Street: 4TH
-Suffix: AVE
-PostDir:
-Sec: APT
-SecNumber: 1
-City: ASBURY PARK
-State: NJ
-Zip: 7712
-Zip4: 6086
-County: MONMOUTH
-CountyFP: 25
-CensusTract: 1015
-CensusBlock: 8070.03
-Latitude: 40.223571
-Longitude: -74.005973
-GeocodePrecision: 5 
+ErrorCode: 0<br>
+ErrorMessage:<br>
+AddressLine1: 506 4TH AVE APT 1<br>
+AddressLine2: ASBURY PARK, NJ 07712-6086<br>
+Number: 506<br>
+PreDir:<br>
+Street: 4TH<br>
+Suffix: AVE<br>
+PostDir:<br>
+Sec: APT<br>
+SecNumber: 1<br>
+City: ASBURY PARK<br>
+State: NJ<br>
+Zip: 7712<br>
+Zip4: 6086<br>
+County: MONMOUTH<br>
+CountyFP: 25<br>
+CensusTract: 1015<br>
+CensusBlock: 8070.03<br>
+Latitude: 40.223571<br>
+Longitude: -74.005973<br>
+GeocodePrecision: 5 <br>
 
 ### SQL Spatial Geography
 
