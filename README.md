@@ -1,7 +1,6 @@
 ## MS SQL Server User-Defined Function (UDF) for Address Correction and Geocoding
 
 This SQL Server User Defined Function (UDF) will correct, validate, standardize and geocode postal addresses in Microsoft SQL Server.
-
 The UDF can be called directly from SQL queries, included in stored procedures, or incorporated in ETL packages built with SSIS. 
 
 # Setup
