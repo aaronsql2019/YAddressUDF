@@ -1,4 +1,4 @@
-## MS SQL Server User-Defined Function (UDF) for Address Correction and Geocoding
+## MS SQL Server User-Defined Function (UDF) for Postal Address Correction, Validation, Standardization and Geocoding
 
 This SQL Server User Defined Function (UDF) will correct, validate, standardize and geocode postal addresses in Microsoft SQL Server.
 The UDF can be called directly from SQL queries, included in stored procedures, or incorporated in ETL packages built with SSIS. 
@@ -6,17 +6,8 @@ The UDF can be called directly from SQL queries, included in stored procedures, 
 # Setup
 
 1. Download YAddress UDF Binaries.
-2. Place "YAddressSqlFunction.dll" on a local disk in your SQL Server. 
-3. Follow installation steps in "SQL Setup Script.sql". 
+2. Follow installation steps in "SQL Setup Script.sql". 
 
-
-### Common Setup Issues
-
-If you get any SQL errors while executing the setup script, make sure your database has a valid owner. For a variety of reasons, such as backup restores, etc., databases may have invalid or non-existent owners. This will preclude proper UDF registration. Correct the issue by setting the database owner to system administrator 'sa': 
-
-```sql
-sp_changedbowner 'sa'
-```
 
 # Usage
 
@@ -27,6 +18,7 @@ ProcessAddress is a table-valued UDF. Executing the following T-SQL illustrates 
 ```sql
 SELECT * FROM ProcessAddress('506 Fourth Avenue Unit 1', 'Asbury Prk, NJ', NULL) 
 ```
+#### Results:
 ErrorCode: 0<br>
 ErrorMessage:<br>
 AddressLine1: 506 4TH AVE APT 1<br>
